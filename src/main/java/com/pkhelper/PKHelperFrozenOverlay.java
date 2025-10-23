@@ -35,10 +35,15 @@ public class PKHelperFrozenOverlay extends Overlay {
         setPosition(OverlayPosition.DYNAMIC);
         setLayer(OverlayLayer.ABOVE_SCENE);
 
-        try (InputStream in = getClass().getResourceAsStream("/net/runelite/client/plugins/pkhelper/Ice_Barrage_icon.png")) {
-            if (in != null) freezeIcon = ImageIO.read(in);
+        try (InputStream in = getClass().getResourceAsStream("/Ice_Barrage_icon.png")) {
+            if (in != null) {
+                freezeIcon = ImageIO.read(in);
+                log.info("Freeze icon loaded successfully: {}x{}", freezeIcon.getWidth(), freezeIcon.getHeight());
+            } else {
+                log.error("InputStream is null - Ice_Barrage_icon.png not found in resources!");
+            }
         } catch (Exception e) {
-            log.warn("Could not load freeze icon", e);
+            log.error("Could not load freeze icon", e);
         }
     }
 

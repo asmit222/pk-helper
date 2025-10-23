@@ -35,7 +35,7 @@ public class PKHelperOpponentFreezeOverlay extends Overlay {
         setPosition(OverlayPosition.DYNAMIC);
         setLayer(OverlayLayer.ABOVE_SCENE);
 
-        try (InputStream in = getClass().getResourceAsStream("/net/runelite/client/plugins/pkhelper/Ice_Barrage_icon.png")) {
+        try (InputStream in = getClass().getResourceAsStream("/Ice_Barrage_icon.png")) {
             if (in != null) {
                 freezeIcon = ImageIO.read(in);
                 log.info("[PKHelper] Opponent freeze icon loaded successfully");
